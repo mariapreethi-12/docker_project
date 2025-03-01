@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  my-python-app:
+    image: my-python-container
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - ./output:/home/data/output
+    networks:
+      - my-network
+
+networks:
+  my-network:
